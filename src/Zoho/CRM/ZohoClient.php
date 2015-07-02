@@ -1,11 +1,13 @@
-<?php namespace Zoho\CRM;
+<?php 
 
-use Zoho\CRM\Common\HttpClientInterface,
-	Zoho\CRM\Common\FactoryInterface,
-	Zoho\CRM\Request\HttpClient,
-	Zoho\CRM\Request\Factory,
-	Zoho\CRM\Wrapper\Element
-	;
+namespace Zoho\CRM;
+
+use Zoho\CRM\Common\HttpClientInterface;
+use Zoho\CRM\Common\FactoryInterface;
+use Zoho\CRM\Request\HttpClient;
+use Zoho\CRM\Request\Factory;
+use Zoho\CRM\Wrapper\Element;
+	
 
 /**
  * Client for provide interface with Zoho CRM
@@ -61,7 +63,7 @@ class ZohoClient
 	 * 
 	 * @param string $authtoken Token for connection
 	 * @param HttpClientInterface $client HttpClient for connection [optional]
-	 * @param FactotoryInterface $factory [optional]
+	 * @param FactoryInterface  $factory [optional]
 	 */
 	public function __construct($authtoken, HttpClientInterface $client = null, FactoryInterface $factory = null)
 	{
