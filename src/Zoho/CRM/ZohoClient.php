@@ -7,7 +7,6 @@ use Zoho\CRM\Common\FactoryInterface;
 use Zoho\CRM\Request\HttpClient;
 use Zoho\CRM\Request\Factory;
 use Zoho\CRM\Wrapper\Element;
-	
 
 /**
  * Client for provide interface with Zoho CRM
@@ -383,7 +382,10 @@ class ZohoClient
 	{
 		$uri = $this->getRequestURI($command);
 		$body = $this->getRequestBody($params, $data, $options);
+		print_r($body);
+		// exit;
 		$xml = $this->client->post($uri, $body); // Make the request to web service
+		print_r($xml);
 		return $this->factory->createResponse($xml, $this->module, $command);
 	}
 
@@ -476,18 +478,12 @@ class ZohoClient
 	{
 		if(empty($this->module))
 			throw new \Exception("Invalid module, it must be setted before map the entity", 1);			
-		$element = new \ReflectionObject($entity);
-		$properties = $element->getProperties();
 		$no = 1;
 		$xml = '<'.$this->module.'>';
 		$xml .= '<row no="'. $no .'">';
-		foreach ($properties as $property)
-		{
-			$propName = $property->getName();
-			$propValue = $entity->$propName;
-			if(!empty($propValue))			
-				$xml .= '<FL val="'.str_replace(['_', 'N36', 'E5F', '&'], [' ', '$', '_', 'and'], $propName).'"><![CDATA['.$propValue.']]></FL>';					
-		} $xml .= '</row>';
+		$xml .= $entity->mapProperties();
+					
+		$xml .= '</row>';
 		$xml .= '</'.$this->module.'>';
 		return $xml;
 	}

@@ -5,103 +5,124 @@ namespace Zoho\CRM\Entities;
 use Zoho\CRM\Wrapper\Element;
 
 /**
- * Entity for Affiliates inside Zoho
+ * Entity for Product inside Zoho
  * This class only have default parameters
  *
  * @version 1.0.0
  */
-class Vendor extends Element 
+class Product extends Element 
 {
 	/**
-	 * Name of the Affiliates
+	 * Product Id
 	 * 
 	 * @var string
 	 */
-	private $Vendor_Name;
+	private $Product_Id;
 	
 	/**
-	 * Phone of the Affiliates
+	 * Product Name
 	 * 
 	 * @var string
 	 */
-	private $Phone;
+	private $Product_Name;
 	
 	/**
-	 * Email of the Affiliates
+	 * Product Active
+	 * 
+	 * @var bool
+	 */
+	private $Product_Active;
+	
+	/**
+	 * Unit Price
 	 * 
 	 * @var string
 	 */
-	private $Email;
+	private $Unit_Price;
 	
 	/**
-	 * Company of the Affiliates
+	 * Quantity
 	 * 
 	 * @var string
 	 */
-	private $Company;
+	private $Quantity;
 	
 	/**
-	 * Identifies if coming from finance agents
+	 * Quantity in Stock
 	 * 
 	 * @var boolean
 	 */
-	private $BFA;
+	private $Quantity_in_Stock;
 	
 	/**
-	 *Status of the Affiliates
+	 * Total
 	 * 
 	 * @var string
 	 */
-	private $Status;
+	private $Total;
 	
 	/**
-	 * Member number of the Affiliates
+	 * Discount
 	 * 
 	 * @var string
 	 */
-	private $Member_Number;
+	private $Discount;
 	
 	/**
-	 * Sponsor of the Affiliates
+	 * Total After Discount
 	 * 
 	 * @var string
 	 */
-	private $Sponsor;
+	private $Total_After_Discount;
 	
 	/**
-	 * City of the Affiliates
+	 * List Price
 	 * 
 	 * @var string
 	 */
-	private $City;
+	private $List_Price;
 	
 	/**
-	 * State of the Affiliates
+	 * Net Total
 	 * 
 	 * @var string
 	 */
-	private $State;
+	private $Net_Total;
 	
 	/**
-	 * Zip_Code of the Affiliates
+	 * Tax
 	 * 
 	 * @var string
 	 */
-	private $Zip_Code;
+	private $Tax;
 	
 	/**
-	 * Street of the Affiliates
+	 * uuid
 	 * 
 	 * @var string
 	 */
-	private $Street;
-	
+	private $uuid;
+
 	/**
-	 * Website of the Affiliates
+	 * Location
 	 * 
 	 * @var string
 	 */
-	private $Website;
+	private $Location;
+
+	/**
+	 * Width
+	 * 
+	 * @var string
+	 */
+	private $Width;
+
+	/**
+	 * Height
+	 * 
+	 * @var string
+	 */
+	private $Height;
 
 	/**
 	 * Getter
@@ -110,7 +131,7 @@ class Vendor extends Element
 	 */
 	public function __get($property)
 	{
-		return isset($this->$property)?$this->$property :null;
+		return isset($this->$property) ? $this->$property : null;
 	}
 
 	/**
@@ -122,6 +143,9 @@ class Vendor extends Element
 	 */
 	public function __set($property, $value)
 	{
+		if ($property == 'PRODUCTID') {
+			$property = $this->mapPropertyName('Product Id');
+		}
 		$this->$property = $value;
 		return $this->$property;
 	}	

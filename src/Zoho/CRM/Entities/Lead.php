@@ -1,4 +1,6 @@
-<?php namespace Zoho\CRM\Entities;
+<?php 
+
+namespace Zoho\CRM\Entities;
 
 use Zoho\CRM\Wrapper\Element;
 
