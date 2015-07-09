@@ -1,10 +1,6 @@
-<?php 
+<?php
 
 namespace Zoho\CRM\Entities;
-
-/**
-<FL val="Product Details">
-*/
 
 use Zoho\CRM\Wrapper\Element;
 
@@ -14,150 +10,150 @@ use Zoho\CRM\Wrapper\Element;
  *
  * @version 1.0.0
  */
-class Quote extends Element 
+class Quote extends Element
 {
 	/**
 	 * Subject
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Subject;
 
 	/**
 	 * Quote Stage
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Quote_Stage;
 
 	/**
 	 * Carrier
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Carrier;
 
 	/**
 	 * ACCOUNTID
-	 * 
+	 *
 	 * @var string
 	 */
 	 private $ACCOUNTID;
 
 	/**
 	 * Account Name
-	 * 
+	 *
 	 * @var string
 	 */
 	 private $Account_Name;
 
 	 /**
 	 * Quote Owner
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Quote_Owner;
 
 	/**
 	 * Sub Total
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Sub_Total;
 
 	/**
 	 * Tax
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Tax;
 
 	/**
 	 * Adjustment
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Adjustment;
 	/**
 	 * Grand Total
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Grand_Total;
-	
+
 	/**
 	 * Product Name
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Product_Name;
-	
+
 	/**
 	 * Unit Price
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Unit_Price;
-	
+
 	/**
 	 * Quantity
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Quantity;
-	
+
 	/**
 	 * Quantity in Stock
-	 * 
+	 *
 	 * @var boolean
 	 */
 	private $Quantity_in_Stock;
-	
+
 	/**
 	 * Total
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Total;
-	
+
 	/**
 	 * Discount
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Discount;
-	
+
 	/**
 	 * Total After Discount
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Total_After_Discount;
-	
+
 	/**
 	 * List Price
-	 * 
+	 *
 	 * @var string
 	 */
 	private $List_Price;
-	
+
 	/**
 	 * Net Total
-	 * 
+	 *
 	 * @var string
 	 */
 	private $Net_Total;
-	
+
 	/**
 	 * Product Details
-	 * 
+	 *
 	 * @var array
 	 */
 	private $Product_Details;
 
 	/**
 	 * Getter
-	 * 
+	 *
 	 * @return mixed
 	 */
 	public function __get($property)
@@ -176,10 +172,9 @@ class Quote extends Element
 	{
 		$this->$property = $value;
 		return $this->$property;
-	}	
-	
+	}
+
 	public function mapProperty($name, $value) {
-		print_r($name);
 		echo "\n";
 		if ($name == 'Product_Details') {
 			$result = '<FL val="'.str_replace(['_', 'N36', 'E5F', '&'], [' ', '$', '_', 'and'], $name).'">';
@@ -195,5 +190,5 @@ class Quote extends Element
 			return parent::mapProperty($name, $value);
 		}
 	}
-	
+
 }

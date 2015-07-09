@@ -42,7 +42,6 @@ abstract class Element
     final public function serializeXml(array $fields)
     {
 		$class = get_class($this);
-		//print_r( "\n\n\n" .  $class . "\n\n\n");
         $output = '<Lead>';
         foreach ($fields as $key => $value) {
             if(empty($value)) continue; // Unnecessary fields

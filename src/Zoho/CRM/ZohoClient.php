@@ -382,10 +382,7 @@ class ZohoClient
 	{
 		$uri = $this->getRequestURI($command);
 		$body = $this->getRequestBody($params, $data, $options);
-		print_r($body);
-		// exit;
 		$xml = $this->client->post($uri, $body); // Make the request to web service
-		print_r($xml);
 		return $this->factory->createResponse($xml, $this->module, $command);
 	}
 
